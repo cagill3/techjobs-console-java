@@ -75,12 +75,18 @@ public class JobData {
 
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
-        for (HashMap<String, String> row : allJobs) {
+        if (!allJobs.toString().toLowerCase().contains(value.toLowerCase())) {
+            System.out.println("No matches for the search term you entered!");
+        }
+        else {
 
-            String aValue = row.get(column).toLowerCase();
+            for (HashMap<String, String> row : allJobs) {
 
-            if (aValue.contains(value.toLowerCase())) {
-                jobs.add(row);
+                String aValue = row.get(column).toLowerCase();
+
+                if (aValue.contains(value.toLowerCase())) {
+                    jobs.add(row);
+                }
             }
         }
         return jobs;
