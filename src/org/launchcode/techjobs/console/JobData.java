@@ -83,7 +83,6 @@ public class JobData {
                 jobs.add(row);
             }
         }
-
         return jobs;
     }
     /**
@@ -96,12 +95,17 @@ public class JobData {
 
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
-        for (HashMap<String, String> row : allJobs) {
+        if (!allJobs.toString().toLowerCase().contains(value.toLowerCase())) {
+            System.out.println("No matches for the search term you entered!");
+        }
+        else {
+            for (HashMap<String, String> row : allJobs) {
 
-            String aRow = row.toString().toLowerCase();
+                String aRow = row.toString().toLowerCase();
 
-            if (aRow.contains(value.toLowerCase())) {
-                jobs.add(row);
+                if (aRow.contains(value.toLowerCase())) {
+                    jobs.add(row);
+                }
             }
         }
         return jobs;
